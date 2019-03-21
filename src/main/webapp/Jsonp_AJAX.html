@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsonP_AJAX</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div id="d1" style="border: 1px solid #000000; height: 400px; width: 400px;"></div>
+
+<script>
+    function showdatas(data){
+        var s = JSON.stringify(data);
+        alert(s);
+    }
+    $("#d1").click( function () {
+        $.ajax({
+            url:"http://localhost:8888/b/jsonp/getJ",
+            type:"get",
+            //指定返回值为jsonp协议
+            dataType:"jsonp",
+            jsonpCallback:"showdatas",
+            success:function (data) {
+                var s = JSON.stringify(data);
+                $("#d1").html(s);
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsonP_JQ</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div id="d1" style="border: 1px solid #000000; height: 400px; width: 400px;"></div>
+
+<script>
+    $("#d1").click(function () {
+        $("head").append("<script src='http://localhost:8888/b/jsonp/getJ?callback=dll'><\/script>");
+    });
+    //回调函数
+    function dll(response){
+        var s = JSON.stringify(response);
+        $("#d1").html(s);
+    }
+</script>
+</body>
+</html>

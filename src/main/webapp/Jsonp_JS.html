@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsonP_JS</title>
+    <script>
+        //新建一个节点
+        var script=document.createElement("script");
+        //定义节点的属性 其中callback=dll我理解的是开启jsonp协议并定义回调函数
+        script.src="http://localhost:8888/b/jsonp/getJ?callback=dll";
+        //将节点生成放到页面 head 是标签选择
+        document.head.insertBefore(script,document.head.firstChild);
+        //回调函数
+        function dll(response){
+            alert(JSON.stringify(response));
+        }
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>
